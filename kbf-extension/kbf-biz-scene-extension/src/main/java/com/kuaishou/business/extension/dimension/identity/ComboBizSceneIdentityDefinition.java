@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.kuaishou.business.core.identity.Match;
 import com.kuaishou.business.extension.dimension.MatchStatus;
 
 import lombok.AllArgsConstructor;
@@ -26,4 +27,9 @@ class ComboBizSceneIdentityDefinition implements BizSceneIdentityDefinition<Coll
         }
         return MatchStatus.UNKNOWN;
     }
+
+	@Override
+	public Match match(Object request, Long resourceId) {
+		return match((Collection<BizSceneItem>) request);
+	}
 }
