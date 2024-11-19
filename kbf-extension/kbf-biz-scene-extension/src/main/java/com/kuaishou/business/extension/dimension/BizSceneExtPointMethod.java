@@ -20,27 +20,27 @@ import com.kuaishou.business.core.reduce.ReduceType;
 public @interface BizSceneExtPointMethod {
 
     /**
-     * 扩展点名称
+     * @return 扩展点名称
      */
     String name() default "";
 
     /**
-     * 扩展点支持的扩展维度
+     * @return 扩展点支持的扩展维度
      */
     String[] scenesTypes();
 
     /**
-     * 扩展实例的合并策略
+     * @return 扩展实例的合并策略
      */
     ReduceType reduceType() default ReduceType.FIRST;
 
     /**
-     * 所属的域服务
+     * @return 所属的域服务
      */
     String belong();
 
     /**
-     * 当前作用范围
+     * @return 当前作用范围
      */
     EffectScope scope() default EffectScope.RESOURCE;
 }

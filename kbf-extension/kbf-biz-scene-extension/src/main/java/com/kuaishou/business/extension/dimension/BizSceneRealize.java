@@ -19,22 +19,22 @@ import com.kuaishou.business.extension.dimension.identity.BizSceneIdentityDefini
 public @interface BizSceneRealize {
 
     /**
-     * 垂直业务(与扩展维度互斥)
+     * @return 垂直业务(与维度互斥)
      */
     Class<? extends BizIdentityDefinition> business() default BizIdentityDefinition.class;
 
     /**
-     * 扩展维度
+     * @return 维度
      */
     Class<? extends BizSceneIdentityDefinition>[] scenes() default {};
 
     /**
-     * 扩展生效维度的匹配方式
+     * @return 维度的匹配方式
      */
     MatchType matchType() default MatchType.ANY;
 
     /**
-     * 扩展实例的优先级
+     * @return 扩展实例的优先级
      */
     int priority() default KbfConstants.DEFAULT_PRIORITY;
 }

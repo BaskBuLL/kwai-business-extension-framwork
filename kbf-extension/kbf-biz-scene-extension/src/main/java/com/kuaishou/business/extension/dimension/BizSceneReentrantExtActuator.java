@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * @author liuzhuo
  * Created on 2023-03-17 下午5:42
- * 扩展点识别（缓存）
+ * 扩展点识别
  */
 @Slf4j
 public class BizSceneReentrantExtActuator implements BizSceneExtActuator {

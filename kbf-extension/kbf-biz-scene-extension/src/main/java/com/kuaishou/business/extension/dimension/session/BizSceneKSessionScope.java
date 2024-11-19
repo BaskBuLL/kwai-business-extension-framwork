@@ -27,24 +27,21 @@ public final class BizSceneKSessionScope {
     }
 
     /**
-     * 获取当前垂直业务身份code
-     * @return
+     * @return 当前垂直业务身份code
      */
     public static String getCurrentBizCode() {
         return getCurrentSession().getBizCode();
     }
 
     /**
-     * 获取当前业务上下文
-     * @return
+     * @return 当前业务上下文
      */
     public static KBizContext getCurrentContext() {
         return getCurrentSession().getContext();
     }
 
 	/**
-	 * 设置业务上下文
-	 * @param kBizContext
+	 * @param kBizContext 业务上下文
 	 */
 	public static void setBizContext(KBizContext kBizContext) {
 		if (Objects.isNull(kBizContext)) {
@@ -54,24 +51,21 @@ public final class BizSceneKSessionScope {
 	}
 
     /**
-     * 判断session是否已创建
-     * @return
+     * @return 判断session是否已创建
      */
     public static boolean init() {
         return KSessionScope.init();
     }
 
     /**
-     * 获取当前垂直业务标准
-     * @return
+     * @return 获取当前垂直业务项
      */
     public static BusinessItem getCurrentBusiness() {
         return getCurrentSession().getBusinessItem();
     }
 
     /**
-     * 获取全局作用域生效产品
-     * @return
+     * @return 获取全局作用域生效维度
      */
     public static Set<BizSceneItem> getEffectProducts() {
         List<BizSceneSessionWrap> bizSceneSessionWraps = getCurrentSession().getBizSceneSessionWraps();
@@ -88,8 +82,7 @@ public final class BizSceneKSessionScope {
     }
 
     /**
-     * 获取全局作用域失效产品
-     * @return
+     * @return 获取全局作用域未命中维度
      */
     public static Set<BizSceneItem> getIneffectProducts() {
         List<BizSceneSessionWrap> bizSceneSessionWraps = getCurrentSession().getBizSceneSessionWraps();
@@ -110,8 +103,7 @@ public final class BizSceneKSessionScope {
     }
 
     /**
-     * 获取所有资源作用域生效产品
-     * @return
+     * @return 获取所有资源作用域生效维度
      */
     public static Map<Long, Set<BizSceneItem>> getEffectResourceProducts() {
         List<BizSceneSessionWrap> bizSceneSessionWraps = getCurrentSession().getBizSceneSessionWraps();
@@ -131,9 +123,8 @@ public final class BizSceneKSessionScope {
     }
 
     /**
-     * 根据资源id获取所有资源作用域生效产品
-     * @param resourceId
-     * @return
+     * @param resourceId 资源id
+     * @return 所有资源作用域生效维度
      */
     public static Set<BizSceneItem> getEffectResourceProduct(Long resourceId) {
         List<BizSceneSessionWrap> bizSceneSessionWraps = getCurrentSession().getBizSceneSessionWraps();
@@ -150,8 +141,7 @@ public final class BizSceneKSessionScope {
     }
 
     /**
-     * 获取全部资源作用域失效产品
-     * @return
+     * @return 全部资源作用域未命中维度
      */
     public static Map<Long, Set<BizSceneItem>> getIneffectResourceProducts() {
         List<BizSceneSessionWrap> bizSceneSessionWraps = getCurrentSession().getBizSceneSessionWraps();
@@ -171,9 +161,8 @@ public final class BizSceneKSessionScope {
     }
 
     /**
-     * 根据资源id获取资源作用域失效产品
-     * @param resourceId
-     * @return
+     * @param resourceId 资源id
+     * @return 资源作用域未命中维度
      */
     public static Set<BizSceneItem> getIneffectResourceProduct(Long resourceId) {
         List<BizSceneSessionWrap> bizSceneSessionWraps = getCurrentSession().getBizSceneSessionWraps();
@@ -190,16 +179,14 @@ public final class BizSceneKSessionScope {
     }
 
     /**
-     * 设置允许执行扩展点
-     * @param enable
+     * @param enable 是否允许执行扩展点
      */
     public static void setExecExtPoint(Boolean enable) {
         getCurrentSession().setExecExtPoint(enable);
     }
 
     /**
-     * 获取是否允许执行扩展点
-     * @return
+     * @return 是否允许执行扩展点
      */
     public static boolean isExecExtPoint() {
         return getCurrentSession().getExecExtPoint();

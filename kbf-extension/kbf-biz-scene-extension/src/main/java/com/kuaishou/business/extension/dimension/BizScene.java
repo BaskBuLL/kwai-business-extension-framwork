@@ -18,17 +18,17 @@ import com.kuaishou.business.extension.dimension.identity.EffectScope;
 public @interface BizScene {
 
     /**
-     * 维度类型
+     * @return 维度类型
      */
     String type();
 
     /**
-     * 维度名称
+     * @return 维度名称
      */
     String name();
 
     /**
-     * 作用域
+     * @return 作用域
      */
     EffectScope scope() default EffectScope.RESOURCE;
 }
