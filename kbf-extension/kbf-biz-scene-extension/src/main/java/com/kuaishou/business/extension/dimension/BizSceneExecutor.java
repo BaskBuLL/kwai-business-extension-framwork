@@ -1,12 +1,12 @@
 package com.kuaishou.business.extension.dimension;
 
-import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.collections4.CollectionUtils;
 
 import com.kuaishou.business.core.exception.KSessionException;
 import com.kuaishou.business.core.session.KSessionScope;
+import com.kuaishou.business.extension.dimension.identity.BizSceneItem;
 import com.kuaishou.business.extension.dimension.identity.BizSceneSessionWrap;
 import com.kuaishou.business.extension.dimension.identity.recognizer.ReentrantBizSceneRecognizer;
 import com.kuaishou.business.extension.dimension.session.BizSceneKSessionScope;
@@ -29,7 +29,7 @@ public class BizSceneExecutor extends Executor {
 	private Boolean isResourceRequest = false;
 
 	@Override
-	public Collection recognize(Object request) {
+	public List<BizSceneItem> recognize(Object request) {
 		List<BizSceneSessionWrap> bizScenes = BizSceneKSessionScope.getBizScenes();
 		ReentrantBizSceneRecognizer recognizer = new ReentrantBizSceneRecognizer(bizScenes,
 			supportBizSceneTypes, resourceId, isResourceRequest);

@@ -1,9 +1,8 @@
 package com.kuaishou.business.extension.engine;
 
 import java.util.List;
-import java.util.Set;
 
-import com.google.common.collect.Sets;
+import com.google.common.collect.Lists;
 import com.kuaishou.business.core.identity.MatchResult;
 import com.kuaishou.business.core.identity.manage.NormalProductItem;
 import com.kuaishou.business.core.identity.product.DefaultProductSessionWrap;
@@ -17,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
  * simple recognizer scan all products every time
  */
 @Slf4j
-public class SimpleProductIdentityRecognizer<T> implements ProductIdentityRecognizer<T, Set<NormalProductItem>> {
+public class SimpleProductIdentityRecognizer<T> implements ProductIdentityRecognizer<T, List<NormalProductItem>> {
 
     private final List<DefaultProductSessionWrap> productSessionWraps;
 
@@ -26,8 +25,8 @@ public class SimpleProductIdentityRecognizer<T> implements ProductIdentityRecogn
     }
 
     @Override
-    public Set<NormalProductItem> recognize(T request) {
-        Set<NormalProductItem> newEffectProducts = Sets.newHashSet();
+    public List<NormalProductItem> recognize(T request) {
+        List<NormalProductItem> newEffectProducts = Lists.newArrayList();
 
 		for (DefaultProductSessionWrap productSessionWrap : productSessionWraps) {
 			if (productSessionWrap.getItem().isCombo()) {
@@ -47,7 +46,7 @@ public class SimpleProductIdentityRecognizer<T> implements ProductIdentityRecogn
     }
 
 	private static void matchProduct(DefaultProductSessionWrap productSessionWrap,
-		Set<NormalProductItem> newEffectProducts, Object... request) {
+		List<NormalProductItem> newEffectProducts, Object... request) {
 		MatchResult match;
 		if (request.length > 0) {
 			match = productSessionWrap.unwrap().getDefinition().match(request[0]);

@@ -1,6 +1,5 @@
 package com.kuaishou.business.extension.engine;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -26,7 +25,7 @@ public abstract class Executor {
 			return reducer.reduce(Lists.newArrayList(defaultMethod.get()));
 		}
 
-		Collection currentProducts = recognize(request);
+		List<? extends KbfRealizeItem> currentProducts = recognize(request);
 
 		List<KbfRealizeItem> kbfRealizeItemList = Lists.newArrayList();
 		kbfRealizeItemList.add(KSessionScope.getCurrentBusiness());
@@ -59,7 +58,7 @@ public abstract class Executor {
 		return reducer.reduce(results);
 	}
 
-	public abstract Collection recognize(Object request);
+	public abstract List<? extends KbfRealizeItem> recognize(Object request);
 
 	public abstract boolean check(Object request);
 
